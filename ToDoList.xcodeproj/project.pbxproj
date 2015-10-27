@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88EDA1A91BDF6BFF00D64ADE /* AddToDoItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EDA1A81BDF6BFF00D64ADE /* AddToDoItemViewController.m */; settings = {ASSET_TAGS = (); }; };
+		88EDA1AC1BDF6D9B00D64ADE /* ToDoListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EDA1AB1BDF6D9B00D64ADE /* ToDoListTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		ECBA67301BDE556200C57E5B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBA672F1BDE556200C57E5B /* main.m */; };
 		ECBA67331BDE556200C57E5B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBA67321BDE556200C57E5B /* AppDelegate.m */; };
 		ECBA67361BDE556200C57E5B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBA67351BDE556200C57E5B /* ViewController.m */; };
@@ -35,6 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		88EDA1A71BDF6BFF00D64ADE /* AddToDoItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddToDoItemViewController.h; sourceTree = "<group>"; };
+		88EDA1A81BDF6BFF00D64ADE /* AddToDoItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddToDoItemViewController.m; sourceTree = "<group>"; };
+		88EDA1AA1BDF6D9B00D64ADE /* ToDoListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoListTableViewController.h; sourceTree = "<group>"; };
+		88EDA1AB1BDF6D9B00D64ADE /* ToDoListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoListTableViewController.m; sourceTree = "<group>"; };
 		ECBA672B1BDE556200C57E5B /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECBA672F1BDE556200C57E5B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ECBA67311BDE556200C57E5B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -110,6 +116,10 @@
 				ECBA673C1BDE556200C57E5B /* LaunchScreen.storyboard */,
 				ECBA673F1BDE556200C57E5B /* Info.plist */,
 				ECBA672E1BDE556200C57E5B /* Supporting Files */,
+				88EDA1A71BDF6BFF00D64ADE /* AddToDoItemViewController.h */,
+				88EDA1A81BDF6BFF00D64ADE /* AddToDoItemViewController.m */,
+				88EDA1AA1BDF6D9B00D64ADE /* ToDoListTableViewController.h */,
+				88EDA1AB1BDF6D9B00D64ADE /* ToDoListTableViewController.m */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
@@ -273,6 +283,8 @@
 				ECBA67361BDE556200C57E5B /* ViewController.m in Sources */,
 				ECBA67331BDE556200C57E5B /* AppDelegate.m in Sources */,
 				ECBA67301BDE556200C57E5B /* main.m in Sources */,
+				88EDA1AC1BDF6D9B00D64ADE /* ToDoListTableViewController.m in Sources */,
+				88EDA1A91BDF6BFF00D64ADE /* AddToDoItemViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +424,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ToDoList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.clairelovin.ToDoList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -423,6 +436,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ToDoList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.clairelovin.ToDoList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -496,6 +510,7 @@
 				ECBA675A1BDE556200C57E5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ECBA675B1BDE556200C57E5B /* Build configuration list for PBXNativeTarget "ToDoListTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +519,7 @@
 				ECBA675D1BDE556200C57E5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ECBA675E1BDE556200C57E5B /* Build configuration list for PBXNativeTarget "ToDoListUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +528,7 @@
 				ECBA67601BDE556200C57E5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
