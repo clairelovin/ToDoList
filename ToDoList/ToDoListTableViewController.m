@@ -8,6 +8,7 @@
 
 #import "ToDoListTableViewController.h"
 #import "ToDoItem.h"
+#import "AddToDoItemViewController.h"
 
 @interface ToDoListTableViewController ()
 
@@ -122,6 +123,13 @@
  */
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue
 {
+    AddToDoItemViewController *source = [segue sourceViewController];
+    ToDoItem *newItem = source.toDoItem;
+    if (newItem!=nil)
+    {
+        [self.toDoItems addObject:newItem];
+        [self.tableView reloadData];
+    }
 }
 
 @end
