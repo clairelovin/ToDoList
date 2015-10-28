@@ -30,9 +30,11 @@
 - (void)loadInitialData {
     ToDoItem *item1 = [[ToDoItem alloc]init];
     item1.itemName = @"claire";
+    item1.completed = YES;
     [self.toDoItems addObject:item1];
     ToDoItem *item2 = [[ToDoItem alloc]init];
     item2.itemName = @"clairelovin";
+    item2.completed = NO;
     [self.toDoItems addObject:item2];
 }
 
@@ -57,9 +59,22 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListPrototypeCell" forIndexPath:indexPath];
     ToDoItem *item = [self.toDoItems objectAtIndex:indexPath.row];
     cell.textLabel.text = item.itemName;
+    if (item.completed)
+    {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }else
+    {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     // Configure the cell...
-    
     return cell;
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    ToDoItem *trappedItem = [self.toDoItems objectAtIndex:indexPath.row];
+    trappedItem.completed = !trappedItem.completed;
+    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 /*
