@@ -7,6 +7,8 @@
 //
 
 #import "ToDoListTableViewController.h"
+#import "ToDoItem.h"
+#import "AddToDoItemViewController.h"
 
 @interface ToDoListTableViewController ()
 
@@ -17,11 +19,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"ToDoListTableViewController viewDidLoad");
+    self.toDoItems = [[NSMutableArray alloc] init];
+    [self loadInitialData];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)loadInitialData {
+    ToDoItem *item1 = [[ToDoItem alloc]init];
+    item1.itemName = @"claire";
+    item1.completed = YES;
+    [self.toDoItems addObject:item1];
+    ToDoItem *item2 = [[ToDoItem alloc]init];
+    item2.itemName = @"clairelovin";
+    item2.completed = NO;
+    [self.toDoItems addObject:item2];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,24 +47,34 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return [self.toDoItems count];
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListPrototypeCell" forIndexPath:indexPath];
+    ToDoItem *item = [self.toDoItems objectAtIndex:indexPath.row];
+    cell.textLabel.text = item.itemName;
+    if (item.completed)
+    {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }else
+    {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     // Configure the cell...
-    
     return cell;
 }
-*/
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    ToDoItem *trappedItem = [self.toDoItems objectAtIndex:indexPath.row];
+    trappedItem.completed = !trappedItem.completed;
+    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -96,6 +121,13 @@
  */
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue
 {
+    AddToDoItemViewController *source = [segue sourceViewController];
+    ToDoItem *newItem = source.toDoItem;
+    if (newItem!=nil)
+    {
+        [self.toDoItems addObject:newItem];
+        [self.tableView reloadData];
+    }
 }
 
 @end
